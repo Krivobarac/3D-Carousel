@@ -2,4 +2,4 @@
 
 ### 3D Carousel example
 
-Template created for implementing into Anhular carousel lib
+Template created for implementing into Angular carousel lib
