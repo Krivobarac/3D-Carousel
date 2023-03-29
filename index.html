@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="tile-container">
+        <!-- If you remove or add more tiles you need to change the rotateY value for each tile in the style.css file
+        (360 / number of tiles, starts from 0)
+        It will be changed in the future to be dynamic -->
+        <div class="tile" id="tile-1"></div>
+        <div class="tile" id="tile-2"></div>
+        <div class="tile" id="tile-3"></div>
+        <div class="tile" id="tile-4"></div>
+        <div class="tile" id="tile-5"></div>
+        <div class="tile" id="tile-6"></div>
+        <div class="tile" id="tile-7"></div>
+        <div class="tile" id="tile-8"></div>
+        <div class="tile" id="tile-9"></div>
+        <div class="tile" id="tile-10"></div>
+    </div>
+
+    <script>
+        let  docEl = document.documentElement;
+        let  tileContainer = document.getElementById('tile-container');
+        let carouselTranslateZValue = tileContainer.children.length * 100;
+        docEl.style.setProperty('--carousel-translateZ', carouselTranslateZValue + 'px');
+        document.body.addEventListener('wheel', (e) => {
+            carouselTranslateZValue = e.deltaY === -100 ? carouselTranslateZValue + 10 : carouselTranslateZValue - 10;
+            docEl.style.setProperty('--carousel-translateZ', carouselTranslateZValue + 'px');
+        });
+    </script>
+</body>
+</html>
